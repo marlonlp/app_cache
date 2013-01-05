@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+  <head>
+    <title>Exemplo de uso de Cache</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.applicationCache.addEventListener('updateready', function(e) {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                window.applicationCache.swapCache();
+                if (confirm('Uma nova versão dessa aplicação está disponível. Deseja carregar ?')) {
+                    window.location.reload();
+                }
+            }
+        }, false);
+    </script>
+  </head>
+  <body>
+      <header>
+        <img src="logo.png" alt="HTML5">
+        <h1>Aplicação web offline</h1>
+        <h1>usando AppCache</h1>
+        <br><br>
+        <!--<h2>Esta linha não aparecerá enquanto o arquivo cache.appcache não for atualizado</h2>-->
+      </header>
+  </body>
+</html>
